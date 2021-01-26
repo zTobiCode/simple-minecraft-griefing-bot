@@ -73,7 +73,7 @@ async def on_message(x):
 
 
         if command.startswith(PREFIX):
-            print('[+] \'%s\' executed \'%s\' with args: \'%s\'' % (author, command, ' '.join(arguments)))
+            print('[+] \'%s\' executed \'%s\' with args: \'%s\'' % (author, command, ' '.join(arguments[1:])))
         
             command = command[len(PREFIX):].lower()
 
@@ -154,7 +154,7 @@ async def on_message(x):
             elif command == 'bungeesearch':
                 urls = [
                     ('https://minecraft-mp.com/type/bungeecord/', (1, 40)),
-                    ('https://minecraft-mp.com/type/waterfall/', (1, 10))
+                    ('https://minecraft-mp.com/type/waterfall/', (1, 5))
                 ]
 
                 url, _range = random.choice(urls)
@@ -235,8 +235,6 @@ async def on_message(x):
                     return
                 e, _ = await get_server_informations(ip)
                 await x.channel.send(embed=e)
-
-                 
 
     except IndexError:
         pass
